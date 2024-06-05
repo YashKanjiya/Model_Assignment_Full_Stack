@@ -101,3 +101,17 @@ Write a comprehensive README file that includes:
 - Information on how to add the evaluator as a collaborator on GitHub
 - Submission guidelines to ensure all code is pushed to the Public repository before the deadline : 2 Days Effective from today .
 
+## Branch workflow (original) 
+ - main(Production branch)
+ - staging (Pre-Production Branch)
+ - Qa (Testing Branch)
+ - Developer (Dev branch) -- many Feature branch to many Developer
+
+## my workflow 
+- main
+- Development
+
+  --------------------------------------------------------------------------------
+
+  1) Spring boot project to Development of Restful api for CRUD Operations.
+     
