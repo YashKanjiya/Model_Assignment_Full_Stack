@@ -1,7 +1,5 @@
 package com.spring.model.model.response;
 
-import java.sql.Date;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.spring.model.model.ModelMaster;
 
@@ -24,9 +22,6 @@ public class ModelMasterData{
     @JsonProperty("Description")
     private String description;
     
-    @JsonProperty("PublicUrl")
-    private String publicUrl;
-    
     @JsonProperty("status")
     private String status ;
     
@@ -39,7 +34,6 @@ public class ModelMasterData{
 		this.id=modelMaster.getId();
 		this.name=modelMaster.getName();
 		this.description=modelMaster.getDescription();
-		this.publicUrl=modelMaster.getPublicUrl();
 		this.status=modelMaster.getStatus();
 		this.dueDate=modelMaster.getDueDate().toString();
 	}

@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 
 import { useNavigate } from 'react-router-dom';
 import Form from './Form';
-import Buttonicon from './Buttonicon';
 
 export const Header = () => {
 
@@ -25,20 +24,14 @@ export const Header = () => {
   const flag=true;
   return (
     <>
-      <div className="flex justify-between w-full h-20 items-center">
+      <div className="flex justify-between w-full h-20 items-center bg-blue-400">
         {/* Title */}
-        <h1 className="text-lg font-bold ml-4">
-          Add Article (CeFro Connect Section)
+        <h1 className="text-lg font-bold ml-4 text-yellow-400">
+          Model Form 
         </h1>
 
         {/* Buttons */}
         <div className="flex items-center">
-          <div className='mr-2'>
-          <Button onClick={handler} color='success' variant="contained" startIcon={<SaveIcon />}>
-            Save
-          </Button>
-        
-          </div>
           <div className='mr-4'>
           <Button onClick={()=>{
             setgotolist(true);

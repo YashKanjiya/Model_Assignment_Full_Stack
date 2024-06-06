@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.spring.model.commonresponse.CommonAPIDataResponse;
@@ -31,9 +29,9 @@ public class JPAModelMasterRepository implements ModelMasterRepository {
 	private ModelMasterQueryDao modelMasterQueryDao;
 	
 	@Override
-	public SaveModelMasterResponse saveTxnMaster(SaveModelMasterRequest saveTXNMasterRequest) 
+	public SaveModelMasterResponse saveTxnMaster(SaveModelMasterRequest saveModelMasterRequest) 
 	{
-		List<String> validationErrors = saveTXNMasterRequest.validate();
+		List<String> validationErrors = saveModelMasterRequest.validate();
         if (!validationErrors.isEmpty()) {
             ValidationErrorResponse errorResponse = new ValidationErrorResponse("Validation Failed", validationErrors);
             SaveModelMasterResponse saveModelMasterResponse = new SaveModelMasterResponse();;
@@ -42,11 +40,10 @@ public class JPAModelMasterRepository implements ModelMasterRepository {
         }
         
 		ModelMaster modelMaster=ModelMaster.builder()
-				.name(saveTXNMasterRequest.getName())
-				.description(saveTXNMasterRequest.getDescription())
-				.publicUrl(saveTXNMasterRequest.getPublicUrl())
-				.status(saveTXNMasterRequest.getStatus())
-				.dueDate(saveTXNMasterRequest.getDueDate())
+				.name(saveModelMasterRequest.getName())
+				.description(saveModelMasterRequest.getDescription())
+				.status(saveModelMasterRequest.getStatus())
+				.dueDate(saveModelMasterRequest.getDueDate())
 				.build();
 				
 		modelMasterQueryDao.save(modelMaster);
@@ -98,6 +95,14 @@ public class JPAModelMasterRepository implements ModelMasterRepository {
   	public CommonAPIDataResponse updateTXNMaster(UpdateModelMasterRequest updateModelMasterRequest) 
   	{
 		CommonAPIDataResponse commonAPIDataResponse = new CommonAPIDataResponse();
+		
+		List<String> validationErrors = updateModelMasterRequest.validate();
+        if (!validationErrors.isEmpty()) {
+            ValidationErrorResponse errorResponse = new ValidationErrorResponse("Validation Failed", validationErrors);
+            SaveModelMasterResponse saveModelMasterResponse = new SaveModelMasterResponse();;
+    		saveModelMasterResponse.setMessage(errorResponse.getDetails().get(0));
+    		return saveModelMasterResponse;
+        }
 
 		String id = updateModelMasterRequest.getId();
 		Optional<ModelMaster> store = modelMasterQueryDao.findById(id);
@@ -108,7 +113,6 @@ public class JPAModelMasterRepository implements ModelMasterRepository {
 			modelMaster.setId(updateModelMasterRequest.getId());
 			modelMaster.setName(updateModelMasterRequest.getName());
 			modelMaster.setDescription(updateModelMasterRequest.getDescription());
-			modelMaster.setPublicUrl(updateModelMasterRequest.getPublicUrl());
 			modelMaster.setStatus(updateModelMasterRequest.getStatus());
 			modelMaster.setDueDate(updateModelMasterRequest.getDueDate());
 			

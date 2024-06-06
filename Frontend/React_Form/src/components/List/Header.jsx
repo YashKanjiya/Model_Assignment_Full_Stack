@@ -19,7 +19,7 @@ export const Header = () => {
     <div className="flex justify-between w-full h-20 items-center bg-blue-400">
         {/* Title */}
         <h1 className="text-lg font-bold ml-4">
-          Articles
+          Model Data
         </h1>
 
         {/* Buttons */}
@@ -28,7 +28,7 @@ export const Header = () => {
           <Button onClick={()=>{
             setgotolist(true);
           }}className='bg-blue-400' variant="contained" startIcon={<AddCircleOutlineIcon />}>
-            Add Article
+            Add Model
           </Button>
           </div>
         </div>
