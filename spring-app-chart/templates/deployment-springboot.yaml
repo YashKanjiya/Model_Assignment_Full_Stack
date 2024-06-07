@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-postgrest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-postgrest
+  template:
+    metadata:
+      labels:
+        app: springboot-postgrest
+    spec:
+      containers:
+      - name: springboot-postgrest
+        image: sha256:cfd6ebf32bc91fcfc10bd7e6dff50b847fd00c2bdbcbc8aea3df6c3c1a34bbb1
+        ports:
+        - containerPort: 15000
+        env:
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            secretKeyRef:
+              name: postgrest-credentials
+              key: uri

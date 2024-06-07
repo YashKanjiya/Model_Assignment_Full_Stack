@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgrest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgrest
+  template:
+    metadata:
+      labels:
+        app: postgrest
+    spec:
+      containers:
+      - name: postgrest
+        image: sha256:4c826f2b405c45eeda455839275645cda12ce9a1023d4ff483d4ed7b93ab4c3f
+        ports:
+        - containerPort: 5432 
+        env:
+        - name: PGRST_DB_URI
+          valueFrom:
+            secretKeyRef:
+              name: postgrest-credentials
+              key: uri
