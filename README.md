@@ -193,6 +193,11 @@ https://assigmentb.netlify.app/
 ## Validation
 - i have used validation dependence for model attributes can validate.
 
+## Swagger Api
+- I have add dependency on Spring boot project.
+- I have used this only locally.
+- I have worked both Swagger Api and Readme for api documentation.
+
 ## Distributed Systems
 ## Information on how to add the evaluator as a collaborator on GitHub
 - Git:- git all command can used like >>> git add -A, git commit, git clone,git remote -v, git pull and push origin, add origin, git branch, git status,git chechout -b branch
