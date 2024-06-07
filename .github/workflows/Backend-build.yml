@@ -34,14 +34,14 @@ jobs:
         with:
           context: Backend/Model_Full_Stack_Project/
           push: false
-          tag: ykanjiya/springAss:v2
+          tag: ykanjiya/springAss:v7
           
       - name: Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: Backend/Model_Full_Stack_Project/
           push: true  
-          tags: ykanjiya/springAss:v2 
+          tags: ykanjiya/springAss:v7 
 
 
   # deploy: 
