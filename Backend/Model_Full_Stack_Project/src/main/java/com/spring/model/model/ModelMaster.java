@@ -36,9 +36,6 @@ public class ModelMaster {
     @Column(name="Description")
     private String description;
     
-    @Column(name="PublicUrl")
-    private String publicUrl;
-    
     @Column(name="status")
     private String status ;
     

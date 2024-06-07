@@ -40,7 +40,7 @@ public class ModelMasterController {
     }
 
     @PutMapping(APIRequestURL.MODEL_MASTER_PUT_API_URL)
-    public ResponseEntity<JsonNode> UpdateTxnMaster(@RequestHeader HttpHeaders headers, @RequestBody UpdateModelMasterRequest updateTXNMasterRequest) 
+    public ResponseEntity<JsonNode> UpdateTxnMaster(@RequestHeader HttpHeaders headers,@Valid @RequestBody UpdateModelMasterRequest updateTXNMasterRequest) 
     {   	
         return txnMasterResourceHandler.UpdateTxnMaster(headers,updateTXNMasterRequest); 
     }
