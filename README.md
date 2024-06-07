@@ -151,6 +151,10 @@ Write a comprehensive README file that includes:
 - Bonus on ChatGPT 4o and 3
 - Build Project we can dist folders that are there.
 
+- Fronted cab deploy on netlify deploy (Server is down,please message server can on)
+- server can run on localhost(core policy also add) and kubernateve
+https://assigmentb.netlify.app/
+
 ## Backend Development
 - I have used the Eclipse package to Develop of API
 - I have used the MVC model for this project.
